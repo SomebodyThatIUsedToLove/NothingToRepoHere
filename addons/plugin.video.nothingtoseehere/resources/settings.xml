@@ -1,8 +1,0 @@
-<settings>
-    <category label="ToSeeHere Settings">
-        <setting id="toseehere_pw" type="text" label="What Is There To See Here" default="" />
-    </category>
-    <category label="ResolveURL Settings">
-        <setting id="resolveurl_settings" type="action" label="Configure ResolveURL" action="RunPlugin(plugin://plugin.video.nothingtoseehere?action=configure_resolveurl)"/>
-    </category>
-</settings>
