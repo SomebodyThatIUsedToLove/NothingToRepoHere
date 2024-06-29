@@ -39,7 +39,6 @@
       </dir>
     </extension>
   </addon>
-  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <addon id="repository.nothingtorepohere" name="Nothing To Repo Here" version="0.0.1" provider-name="SomebodyThatIUsedToLove" extension point="xbmc.addon.repository">
     <extension point="xbmc.addon.repository" name="Nothing To Repo Here">
       <info compressed="false">https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml</info>
