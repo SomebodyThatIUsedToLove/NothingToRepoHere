@@ -1,3 +1,4 @@
+from stored_state import clear_stored_search_state
 import xbmcgui
 import xbmcplugin
 import sys
@@ -9,6 +10,7 @@ _HANDLE = int(sys.argv[1])
 
 
 def list_sites():
+    clear_stored_search_state()
     xbmcplugin.setPluginCategory(_HANDLE, "Video Sites")
     xbmcplugin.setContent(_HANDLE, "videos")
     for site in SITES:
@@ -27,6 +29,7 @@ def list_sites():
 
 
 def list_site_options(site_name):
+    clear_stored_search_state()
     xbmcplugin.setPluginCategory(_HANDLE, site_name)
     xbmcplugin.setContent(_HANDLE, "videos")
 
@@ -41,4 +44,14 @@ def list_site_options(site_name):
     xbmcplugin.addDirectoryItem(_HANDLE, url, list_item, True)
 
     xbmcplugin.addSortMethod(_HANDLE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE)
+    xbmcplugin.endOfDirectory(_HANDLE)
+
+
+def show_nothing():
+    xbmcplugin.setPluginCategory(_HANDLE, "Nothing")
+    xbmcplugin.setContent(_HANDLE, "videos")
+    url = get_url()
+    list_item = xbmcgui.ListItem(label="Nothing")
+    is_folder = False
+    xbmcplugin.addDirectoryItem(_HANDLE, url, list_item, is_folder)
     xbmcplugin.endOfDirectory(_HANDLE)

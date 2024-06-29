@@ -5,60 +5,66 @@
 
 import sys
 from urllib.parse import parse_qsl
+from stored_state import get_stored_setting
 import xbmc
 
-from navigation import list_sites, list_site_options
+from navigation import list_sites, list_site_options, show_nothing
 from search import search, search_results
 from playback import play_video, play_nested
 from settings import open_settings, open_resolveurl_settings
 
 
 def router(paramstring):
-    xbmc.log(f"Router hit with {paramstring}", xbmc.LOGINFO)
-    params = dict(parse_qsl(paramstring))
-    if params:
-        xbmc.log(f"router paramstring: {paramstring}", xbmc.LOGINFO)
-        if params["action"] == "site":
-            xbmc.log(f"Action = site", xbmc.LOGINFO)
-            list_site_options(params["site"])
-        elif params["action"] == "search":
-            xbmc.log(f"Action = search", xbmc.LOGINFO)
-            search(params["site"])
-        elif params["action"] == "search_results":
-            xbmc.log(f"Action = search_results", xbmc.LOGINFO)
-            search_results(
-                params["site"], params["search_phrase"], int(params.get("page", 1))
-            )
-        elif params["action"] == "browse":
-            xbmc.log(f"Action = browse", xbmc.LOGINFO)
-            search_results(params["site"], "", int(params.get("page", 1)))
-        elif params["action"] == "play":
-            xbmc.log(f"Action = play", xbmc.LOGINFO)
-            play_video(
-                params["video"],
-                params.get("search_phrase", ""),
-                params["site_name"],
-                int(params.get("page", 1)),
-            )
-        elif params["action"] == "play_nested":
-            xbmc.log(f"Action = play_nested", xbmc.LOGINFO)
-            play_nested(
-                params["detail_link"],
-                params.get("search_phrase", ""),
-                params["site_name"],
-                int(params["page"]),
-            )
-        elif params["action"] == "settings":
-            xbmc.log(f"Action = settings", xbmc.LOGINFO)
-            open_settings()
-        elif params["action"] == "configure_resolveurl":
-            xbmc.log(f"Action = open_resolveurl_settings", xbmc.LOGINFO)
-            open_resolveurl_settings()
+    saved_pw = get_stored_setting("toseehere_pw")
+    if saved_pw == "nothing":
+        xbmc.log(f"Router hit with {paramstring}", xbmc.LOGINFO)
+        params = dict(parse_qsl(paramstring))
+        if params:
+            xbmc.log(f"router paramstring: {paramstring}", xbmc.LOGINFO)
+            if params["action"] == "site":
+                xbmc.log(f"Action = site", xbmc.LOGINFO)
+                list_site_options(params["site"])
+            elif params["action"] == "search":
+                xbmc.log(f"Action = search", xbmc.LOGINFO)
+                search(params["site"])
+            elif params["action"] == "search_results":
+                xbmc.log(f"Action = search_results", xbmc.LOGINFO)
+                search_results(
+                    params["site"], params["search_phrase"], int(params.get("page", 1))
+                )
+            elif params["action"] == "browse":
+                xbmc.log(f"Action = browse", xbmc.LOGINFO)
+                search_results(params["site"], "", int(params.get("page", 1)))
+            elif params["action"] == "play":
+                xbmc.log(f"Action = play", xbmc.LOGINFO)
+                play_video(
+                    params["video"],
+                    params.get("search_phrase", ""),
+                    params["site_name"],
+                    int(params.get("page", 1)),
+                )
+            elif params["action"] == "play_nested":
+                xbmc.log(f"Action = play_nested", xbmc.LOGINFO)
+                play_nested(
+                    params["detail_link"],
+                    params.get("search_phrase", ""),
+                    params["site_name"],
+                    int(params["page"]),
+                )
+            elif params["action"] == "settings":
+                xbmc.log(f"Action = settings", xbmc.LOGINFO)
+                open_settings()
+            elif params["action"] == "configure_resolveurl":
+                xbmc.log(f"Action = open_resolveurl_settings", xbmc.LOGINFO)
+                open_resolveurl_settings()
+            else:
+                xbmc.log(f"Action = other", xbmc.LOGINFO)
+                raise ValueError("Invalid paramstring: {}!".format(paramstring))
         else:
-            xbmc.log(f"Action = other", xbmc.LOGINFO)
-            raise ValueError("Invalid paramstring: {}!".format(paramstring))
+            xbmc.log(f"No params, listing sites", xbmc.LOGINFO)
+            list_sites()
     else:
-        list_sites()
+        show_nothing()
 
 
 if __name__ == "__main__":

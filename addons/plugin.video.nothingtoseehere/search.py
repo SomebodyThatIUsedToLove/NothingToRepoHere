@@ -38,6 +38,7 @@ def search(site_name):
 
 
 def search_results(site_name, search_phrase, page=1):
+    clear_stored_search_state()
     xbmc.log(
         f"search_results called for {site_name}, {search_phrase}, {page}", xbmc.LOGINFO
     )
@@ -172,9 +173,13 @@ def search_results(site_name, search_phrase, page=1):
         list_item = xbmcgui.ListItem(label=result["name"])
         list_item.setArt({"thumb": result["thumb"]})
         list_item.setProperty("IsPlayable", "true")
-        list_item.setInfo(
-            "video", {"title": result["name"], "plot": result["description"]}
-        )
+        video_info = list_item.getVideoInfoTag()
+        video_info.setPlot(f"{result['name']}\n{result['description']}")
+        video_info.setPlotOutline(f"{result['name']}\n{result['description']}")
+        video_info.setTitle(result["name"])
+        # list_item.setInfo(
+        #     "video", {"title": result["name"], "plot": result["description"]}
+        # )
         list_item.setProperty(
             "Description", result["description"]
         )  # Set the Description property

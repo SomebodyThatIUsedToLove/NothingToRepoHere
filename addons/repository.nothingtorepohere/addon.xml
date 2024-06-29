@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.nothingtorepohere" name="Nothing To Repo Here" version="0.0.1" provider-name="SomebodyThatIUsedToLove" extension point="xbmc.addon.repository">
+  <extension point="xbmc.addon.repository" name="Nothing To Repo Here">
+    <info compressed="false">https://somebodythatiusedtolove.github.io/nothingtorepohere/addons.xml</info>
+    <checksum>https://somebodythatiusedtolove.github.io/nothingtorepohere/addons.xml.md5</checksum>
+    <datadir zip="true">https://somebodythatiusedtolove.github.io/nothingtorepohere/zips/</datadir>
+  </extension>
+  <assets>
+    <icon>icon.png</icon>
+  </assets>
+</addon>

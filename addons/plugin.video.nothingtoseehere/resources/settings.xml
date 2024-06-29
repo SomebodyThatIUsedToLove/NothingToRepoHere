@@ -1,8 +1,6 @@
 <settings>
-    <category label="General">
-        <setting id="search_phrase" type="text" label="Search Phrase" default=""/>
-        <setting id="site_name" type="text" label="Site Name" default=""/>
-        <setting id="page" type="number" label="Page" default="1" min="1"/>
+    <category label="ToSeeHere Settings">
+        <setting id="toseehere_pw" type="text" label="What Is There To See Here" default="" />
     </category>
     <category label="ResolveURL Settings">
         <setting id="resolveurl_settings" type="action" label="Configure ResolveURL" action="RunPlugin(plugin://plugin.video.nothingtoseehere?action=configure_resolveurl)"/>

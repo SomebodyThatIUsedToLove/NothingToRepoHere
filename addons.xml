@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
   <addon id="plugin.video.nothingtoseehere" version="0.0.1" name="Nothing To See Here" provider-name="SomebodyThatIUsedToLove">
+    <loglevel>2</loglevel>
     <requires>
       <import addon="xbmc.python" version="3.0.0"/>
       <import addon="script.module.resolveurl" version="5.1.0"/>
@@ -22,7 +23,7 @@
         <screenshot>resources/screenshot-01.jpg</screenshot>
         <screenshot>resources/screenshot-02.jpg</screenshot>
       </assets>
-      <news>Updated with latest artwork metadata</news>
+      <news>First release of absolutely nothing!</news>
       <settings src="resources/settings.xml"/>
     </extension>
     <extension point="xbmc.addon.repository">
@@ -31,6 +32,22 @@
         <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
         <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
       </dir>
+      <dir>
+        <info compressed="false">https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml</info>
+        <checksum>https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml.md5</checksum>
+        <datadir zip="true">https://somebodythatiusedtolove.github.io/NothingToRepoHere/zips/</datadir>
+      </dir>
     </extension>
+  </addon>
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <addon id="repository.nothingtorepohere" name="Nothing To Repo Here" version="0.0.1" provider-name="SomebodyThatIUsedToLove" extension point="xbmc.addon.repository">
+    <extension point="xbmc.addon.repository" name="Nothing To Repo Here">
+      <info compressed="false">https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml</info>
+      <checksum>https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml.md5</checksum>
+      <datadir zip="true">https://somebodythatiusedtolove.github.io/NothingToRepoHere/zips/</datadir>
+    </extension>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
   </addon>
 </addons>
