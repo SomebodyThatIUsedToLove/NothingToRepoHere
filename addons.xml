@@ -35,7 +35,7 @@
       <dir>
         <info compressed="false">https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml</info>
         <checksum>https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml.md5</checksum>
-        <datadir zip="true">https://somebodythatiusedtolove.github.io/NothingToRepoHere/zips/</datadir>
+        <datadir zip="true">https://somebodythatiusedtolove.github.io/NothingToRepoHere/</datadir>
       </dir>
     </extension>
   </addon>
@@ -43,7 +43,7 @@
     <extension point="xbmc.addon.repository" name="Nothing To Repo Here">
       <info compressed="false">https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml</info>
       <checksum>https://somebodythatiusedtolove.github.io/NothingToRepoHere/addons.xml.md5</checksum>
-      <datadir zip="true">https://somebodythatiusedtolove.github.io/NothingToRepoHere/zips/</datadir>
+      <datadir zip="true">https://somebodythatiusedtolove.github.io/NothingToRepoHere/</datadir>
     </extension>
     <assets>
       <icon>icon.png</icon>
